@@ -1,0 +1,7 @@
+{{ with .Params.tags }}
+{{ if ge (len .) 1 }}
+    {{ range . }}
+        <a class="btn btn-outline-primary btn-lg" href="/tags/{{ lower . | urlize }}/">#{{ . }}</a>
+    {{ end }}
+{{ end }}
+{{ end }}

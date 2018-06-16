@@ -1,0 +1,51 @@
+{{ define "main" }}
+  
+<h1 class="display-3">{{ .Title }}</h1>
+
+{{ partial "menus/devices.html" . }}
+
+<div class="btn-group filter-button-group button-group" data-filter-group="all">
+    <button class="btn btn-outline-primary active" data-filter="*">All {{ .Title }}</button>
+</div>
+
+{{ if hasPrefix .URL "/devices/mouse/" }}
+<div class="btn-group filter-button-group button-group" data-filter-group="mouse_sensor">
+    <button class="btn btn-outline-primary" data-filter=".optical">Optical</button>
+    <button class="btn btn-outline-primary" data-filter=".laser">Laser</button>
+</div>
+
+<div class="btn-group filter-button-group button-group" data-filter-group="mouse_form">
+    <button class="btn btn-outline-primary" data-filter=".ergonomic">Ergonomic</button>
+    <button class="btn btn-outline-primary" data-filter=".ambidextrous">Ambidextrous</button>
+</div>
+
+<div class="btn-group filter-button-group button-group" data-filter-group="mouse_wire">
+    <button class="btn btn-outline-primary" data-filter=".wired">Wired</button>
+</div>
+{{ end }}
+
+{{ if hasPrefix .URL "/devices/headset" }}
+<div class="btn-group filter-button-group button-group" data-filter-group="headset_acoustics">
+    <button class="btn btn-outline-primary" data-filter=".closed">Closed</button>
+    <button class="btn btn-outline-primary" data-filter=".open">Open</button>
+</div>
+{{ end }}
+
+{{ if hasPrefix .URL "/devices/keyboard" }}
+<div class="btn-group filter-button-group button-group" data-filter-group="keyswitches_brands">
+    <button class="btn btn-outline-primary" data-filter=".romer-g">Romer-G</button>
+    <button class="btn btn-outline-primary" data-filter=".cherry-mx">Cherry MX</button>
+    <button class="btn btn-outline-primary" data-filter=".kailh">Kailh</button>
+</div>
+{{ end }}
+
+<p>&nbsp;</p>
+
+<div class="isotope_devices">
+    {{ range where .Data.Pages ".Params.hide" "!=" true }}
+        {{ partial "cards/devices.html" . }}
+    {{ end }}
+</div>
+
+
+{{ end }}

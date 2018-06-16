@@ -1,0 +1,13 @@
+{{ define "main" }}
+  
+    <h1 class="display-3">{{.Title}}</h1>
+
+    <div class="card-columns">
+        {{ range where .Data.Pages ".Params.hide" "!=" true }}
+            {{ partial "cards/posts.html" . }}
+        {{ end }}
+    </div>
+
+    {{ partial "pagination.html" . }}
+
+{{ end }}

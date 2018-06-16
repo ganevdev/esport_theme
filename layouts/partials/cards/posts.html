@@ -1,0 +1,10 @@
+<div class="element-item card border-light">
+    <a href="{{ .RelPermalink }}">
+        {{ partial "banner.html" . }}
+        <div class="card-body">
+            <h5 class="card-title">{{ .Title | markdownify }}</h5>
+            <h6 class="card-subtitle">{{ .Description | markdownify }}</h6>
+            {{ partial "date.html" . }}
+        </div>
+    </a>
+</div>

@@ -1,0 +1,53 @@
+<footer id="footer">
+    <div class="container">
+        <hr> 
+        <p>&nbsp;</p>
+        <div id="social">
+            
+        {{ with .Site.Params.vk }}
+        <span><a target="_blank" class="btn btn-primary btn-lg btn-shadow" href="https://vk.com/{{ . }}" role="button"><i class="fab fa-vk"></i>&nbsp;&nbsp;@{{ . }}</a></span>
+        <span>&nbsp;&nbsp;&nbsp;</span>
+        {{ end }}
+        
+        {{ with .Site.Params.twitter }}
+        <span><a target="_blank" class="btn btn-success btn-lg btn-shadow" href="https://twitter.com/intent/follow?screen_name={{ . }}" role="button"><i class="fab fa-twitter"></i>&nbsp;&nbsp;@{{ . }}</a></span>
+        <span>&nbsp;&nbsp;&nbsp;</span>
+        {{ end }}
+        
+        {{ if .Site.Params.mail }}
+        <span><strong>{{ .Site.Params.mail }}</strong> - {{ .Site.Params.mail_description }}</span>
+        {{ end }}
+
+        </div>
+        <p>&nbsp;</p>
+
+        <p>
+        {{ i18n "contacts of the owner" }}:<br>
+        {{ if .Site.Params.admin_twitter }}
+        <a target="_blank" href="https://twitter.com/{{ .Site.Params.admin_twitter }}">@{{ .Site.Params.admin_twitter }}</a> - {{ .Site.Params.admin_twitter_description }}<br>
+        {{ end }}
+        {{ if .Site.Params.admin_mail }}
+        <strong>{{ .Site.Params.admin_mail }}</strong> - {{ .Site.Params.admin_mail_description }}
+        {{ end }}
+        </p>
+
+        {{ if .Site.Params.amazon_id }}
+        <p>&nbsp;</p>
+        <p>{{ .Site.Title }} is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com, Amazon.co.uk, Amazon.de, Amazon.fr, Amazon.it, Amazon.in, Amazon.es and other Amazon stores worldwide.</p>
+        <p>Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.</p>
+        {{ end }}
+
+        <p><a href="{{ .Site.BaseURL | relLangURL }}{{ .Site.Params.Privacy_Policy }}">
+        {{ .Site.Params.Privacy_Policy_description }}</a></p>
+   
+
+        <p class="small">
+        {{ with .Site.Params.copyright }}
+            {{ . | markdownify }}
+        {{ else }}
+            © Copyright {{ now.Format "2006" }} {{ .Site.Params.name }}
+        {{ end }}
+        </p>
+        <p>&nbsp;</p>
+    </div>
+</footer>   

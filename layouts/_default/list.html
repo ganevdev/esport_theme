@@ -1,0 +1,11 @@
+{{ define "main" }}
+
+    <div class="card-columns">
+    {{ range where .Paginator.Pages ".Params.hide" "!=" true }}
+        {{ partial "cards/posts.html" . }}
+    {{ end }}
+    </div>
+
+    {{ partial "pagination.html" . }}
+
+{{ end }}

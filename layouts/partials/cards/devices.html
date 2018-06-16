@@ -1,0 +1,101 @@
+<div class="element-item
+{{ with .Params.devices }}{{ range . }} {{ . | urlize }} {{ end }}{{ end }}
+{{ with .Params.brands }}{{ range . }} {{ . | urlize }} {{ end }}{{ end }}
+{{ with .Params.mouse_sensor }}{{ range . }} {{ . | urlize }} {{ end }}{{ end }}
+{{ with .Params.mouse_form }}{{ range . }} {{ . | urlize }} {{ end }}{{ end }}
+{{ with .Params.mouse_wire }}{{ range . }} {{ . | urlize }} {{ end }}{{ end }}
+{{ with .Params.headset_acoustics }}{{ range . }} {{ . | urlize }} {{ end }}{{ end }}
+{{ with .Params.keyswitches_brands }}{{ range . }} {{ . | urlize }} {{ end }}{{ end }}">
+    <div class="card border-light devices_pre">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-3">
+                    <a href="{{ .RelPermalink }}">
+                    {{ with .Params.ASIN }}
+                    <div class="text-center">
+                        <img class="img-fluid" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=
+                        {{ . }}
+                        &Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1">
+                    </div>
+                    {{ end }}
+                    </a>
+                </div>
+        
+                <div class="col-9">
+                    <h3 class="card-title">
+                        <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+                    </h3>
+                    
+                    {{ with .Params.devices }}
+                    {{ if ge (len .) 1 }}
+                        {{ range . }}
+                            <a class="badge badge-primary" href="/devices/{{ . | urlize }}">{{ . }}</a>
+                        {{ end }}
+                    {{ end }}
+                    {{ end }}
+    
+                    {{ with .Params.brands }}
+                    {{ if ge (len .) 1 }}
+                        {{ range . }}
+                            <a class="badge badge-primary" href="/brands/{{ . | urlize }}">{{ . }}</a>
+                        {{ end }}
+                    {{ end }}
+                    {{ end }}
+
+                    {{ with .Params.keyswitches_brands }}
+                    {{ if ge (len .) 1 }}
+                        {{ range . }}
+                    <a class="badge badge-primary" href="/devices/keyboard/#f=.{{ . | urlize }}">{{ . }}</a>
+                        {{ end }}
+                    {{ end }}
+                    {{ end }}
+    
+                    {{ with .Params.headset_acoustics }}
+                    {{ if ge (len .) 1 }}
+                        {{ range . }}
+                    <a class="badge badge-primary" href="/devices/headset/#f=.{{ . | urlize }}">{{ . }}</a>
+                        {{ end }}
+                    {{ end }}
+                    {{ end }}
+
+                    {{ with .Params.mouse_sensor }}
+                    {{ if ge (len .) 1 }}
+                        {{ range . }}
+                    <a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">{{ . }}</a>
+                        {{ end }}
+                    {{ end }}
+                    {{ end }}
+
+                    {{ with .Params.mouse_form }}
+                    {{ if ge (len .) 1 }}
+                        {{ range . }}
+                    <a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">{{ . }}</a>
+                        {{ end }}
+                    {{ end }}
+                    {{ end }}
+
+                    {{ with .Params.mouse_wire }}
+                    {{ if ge (len .) 1 }}
+                        {{ range . }}
+                    <a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">{{ . }}</a>
+                        {{ end }}
+                    {{ end }}
+                    {{ end }}
+
+                    {{ if .Site.Params.amazon_id }}
+                    {{ if .Site.Params.amazon_buttons }}
+                    {{ if .Params.ASIN }}
+                    <p></p>
+                    <p>
+                        <a target="_blank" class="badge badge-warning" href="https://www.amazon.com/gp/product/{{ .Params.ASIN }}/?tag={{ .Site.Params.amazon_id }}" role="button">&nbsp;&nbsp;{{ .Title }}
+                        &nbsp;on&nbsp;Amazon&nbsp;&nbsp;</a>
+                    </p>
+                    {{ end }}
+                    {{ end }}
+                    {{ end }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

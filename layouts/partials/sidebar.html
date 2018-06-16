@@ -1,0 +1,34 @@
+<div class="sticky-top">
+<p>&nbsp;</p>
+    
+    <div class="text-center">
+
+        {{ with .Site.Params.vk_id }}
+        <p></p>
+        <div id="vk_groups" style="height: 141px; background: none;"><iframe name="fXD958c3" frameborder="0" src="https://vk.com/widget_community.php?app=0&amp;width=220px&amp;_ver=1&amp;gid={{ . }}&amp;mode=1&amp;color1=&amp;color2=&amp;color3=5E7AA8&amp;class_name=&amp;url=http%3A%2F%2Fcybersport.top%2F&amp;referrer=&amp;title=%D0%9A%D1%80%D1%8B%D1%81%D1%8B%20%D0%9A%D0%B8%D0%B1%D0%B5%D1%80%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B0&amp;163723e1fc1" width="220" height="141" scrolling="no" id="vkwidget1" style="overflow: hidden; height: 141px;"></iframe></div>
+        <script type="text/javascript">
+        VK.Widgets.Group("vk_groups", {mode: 1, width: "220", color3: '5E7AA8'}, {{ . }});
+        </script>
+        <p>&nbsp;</p>
+        {{ end }}
+
+        {{ with .Site.Params.vk }}
+        <a target="_blank" class="btn btn-info btn-lg btn-shadow" href="https://vk.com/{{ . }}" role="button"><i class="fab fa-vk"></i>&nbsp;&nbsp;@{{ . }}</a>
+        <p></p>
+        {{ end }} 
+            
+        {{ if .Site.Params.twitter_timeline }}
+            {{ with .Site.Params.twitter }}
+            <a target="_blank" class="twitter-timeline" data-height="400" href="https://twitter.com/{{ . }}?ref_src=twsrc%5Etfw">Tweets by {{ . }}</a> 
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <p></p>
+            {{ end }}
+        {{ end }}
+
+        {{ with .Site.Params.twitter }}
+        <a target="_blank" class="btn btn-success btn-lg btn-shadow" href="https://twitter.com/intent/follow?screen_name={{ . }}" role="button"><i class="fab fa-twitter"></i>&nbsp;&nbsp;@{{ . }}</a>
+        <p></p>
+        {{ end }}
+ 
+    </div> 
+</div> 

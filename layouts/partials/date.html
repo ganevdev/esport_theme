@@ -1,0 +1,12 @@
+{{ if (isset .Params "date") }}
+
+{{ if eq .Site.Params.date_format "simple" }}
+<time class="card-text text-muted" datetime="{{ .Date.Format "2006-01-02" }}">
+    {{ .Date.Format "2006-01-02" }}</time>
+
+{{ else }}
+<time class="card-text text-muted" datetime="{{ .Date.Format "2006-01-02" }}">
+    {{ .Date.Format "January 2, 2006" }}</time>
+{{ end }}
+
+{{ end }}

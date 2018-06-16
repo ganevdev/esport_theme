@@ -1,0 +1,49 @@
+{{ define "main" }}
+
+<article>
+
+{{ if ne .Params.banner_hide true }}
+   {{ partial "banner.html" . }}
+    <p></p>
+{{ end }}
+
+    <div>
+        <h1 class="display-4">{{ .Title }}</h1>
+        <p class="lead">{{ .Description | markdownify }}</p>
+    </div>
+
+    <section id="post-body">
+        {{ .Content }}
+    </section>
+    
+    <p>&nbsp;</p>
+    <div class="mx-auto">
+    <div class="mx-auto text-center card text-white bg-light" style="max-width: 28rem;">
+    <div class="card-body">
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
+    </div>
+    </div>
+    </div>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+    <div>
+    <p></p>
+    {{ partial "tags.html" . }}
+    <p></p>
+    {{ partial "date.html" . }}
+    <hr>
+    </div>
+
+</article>
+<p>&nbsp;</p>
+
+{{ template "_internal/disqus.html" . }}
+
+{{ partial "blocks/latest-posts.html" . }}
+{{ partial "blocks/top-devices.html" . }}
+{{ partial "blocks/top-proplayers.html" . }}
+
+{{ end }}
+ 

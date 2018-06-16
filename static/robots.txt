@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Disallow: /affiliate-and-privacy-policy

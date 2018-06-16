@@ -1,0 +1,5 @@
+{{ if .Params.player_foto }}
+<img class="rounded img-fluid player_foto" src="{{ .Params.player_foto }}" alt="{{ .Params.title }}"></img>
+{{ else }}
+<img class="rounded img-fluid player_foto" src="/user.jpg"></img>
+{{ end }}

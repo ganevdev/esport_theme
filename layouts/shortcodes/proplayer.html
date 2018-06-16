@@ -1,0 +1,3 @@
+{{ with .Site.GetPage "page" (.Get 0) }}
+{{ partial "teasers/proplayer_card.html" . }}
+{{ end }}

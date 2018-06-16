@@ -1,0 +1,20 @@
+<p>&nbsp;</p>
+{{ $pag := $.Paginator }}
+{{ if gt $pag.TotalPages 1 }}
+<nav>
+    <ul class="pagination justify-content-center pagination-lg">
+        
+        <li class="page-item {{ if not $pag.HasPrev }}disabled{{ end }}">
+            <a class="page-link" href="{{ if $pag.HasPrev }}{{ $pag.Prev.URL }}{{ end }}" aria-label="Previous">
+            <i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Previous</a>
+        </li>
+ 
+        <li class="page-item {{ if not $pag.HasNext }}disabled{{ end }}">
+            <a class="page-link" href="{{ if $pag.HasNext }}{{ $pag.Next.URL }}{{ end }}" aria-label="Next">
+            Next&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></a>
+        </li>
+
+    </ul>
+</nav>
+{{ end }}
+<p>&nbsp;</p>

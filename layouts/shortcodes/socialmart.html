@@ -1,0 +1,28 @@
+{{ if .Site.Params.socialmart }}
+
+{{ $ya_market_number := .Get 0 }}
+{{ $percent := .Get 1 }}
+
+<div class="mx-auto card" style="max-width: 42rem;">
+<div class="card-body">
+
+<div data-widget-id="{{ .Site.Params.socialmart_id }}" 
+class="smw3" data-model-id={{ $ya_market_number }}></div>
+
+{{ if gt $percent 0 }}
+<p></p>
+<div class="progress" style="height: 32px; font-size: 1rem;">
+<div class="progress-bar" style="width: {{ $percent }}%;" role="progressbar" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">{{ $percent }} %</div>
+</div>
+<p></p>
+{{ end }}
+
+{{ if len .Inner }}
+{{ .Inner }}
+{{ end }}
+
+</div>
+</div>
+<p>&nbsp;</p>
+
+{{ end }}

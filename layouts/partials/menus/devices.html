@@ -1,0 +1,9 @@
+<!-- devices menu -->
+<p></p>
+<nav class="sidebar-nav">
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.devices }}
+    <a class="btn btn-outline-primary sidebar-nav-item{{if or ($currentPage.IsMenuCurrent "devices" .) ($currentPage.HasMenuCurrent "devices" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+    {{ end }}
+</nav>
+<p></p>

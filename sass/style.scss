@@ -1,0 +1,47 @@
+/*!
+ * Bootstrap v4.1.0 (https://getbootstrap.com/)
+ */
+
+// selectively import components we need from font-awesome
+// see: node_modules/font-awesome/scss/font-awesome.scss
+// @import 'source/scss/font-awesome';
+
+// variables - ключевой scss файл
+@import 'charming_variables.scss';
+// @import 'bootstrap4-neon-glow.scss';
+
+// сборка базовых bootstrap scss файлов
+// selectively import components we need from bootstrap
+// see: node_modules/bootstrap/scss/bootstrap.scss
+// @import 'bootstrap.scss';
+
+// local style overrides
+// bootswatch.com
+// @import 'bootswatch.scss';
+
+/*! Bootstrap 4 "Charming" Theme by HackerThemes, https://hackerthemes.com */
+// ../node_modules/theme-machine/themes/charming/css/
+
+@import '../node_modules/theme-machine/themes/charming/css/functions'; // map-get
+@import '../node_modules/theme-machine/themes/charming/css/colors';
+@import '../node_modules/theme-machine/themes/charming/css/variables';
+
+// Bootstrap variables end: Import Bootstrap
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import '../node_modules/theme-machine/scss/common-utils';
+
+// Customized Bootstrap
+@import '../node_modules/theme-machine/themes/charming/css/alerts';
+
+// Charming stuff
+@import '../node_modules/theme-machine/themes/charming/css/mixins/mixins';
+@import '../node_modules/theme-machine/themes/charming/css/mixins/colors';
+@import '../node_modules/theme-machine/themes/charming/css/buttons';
+@import '../node_modules/theme-machine/themes/charming/css/forms';
+// @import '../node_modules/theme-machine/themes/charming/css/icons';
+@import '../node_modules/theme-machine/themes/charming/css/type';
+@import '../node_modules/theme-machine/themes/charming/css/utilities';
+
+/*! мой erats_theme */
+// мой ПОСТ заменитель
+@import 'esport_theme.scss';

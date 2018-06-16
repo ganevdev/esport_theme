@@ -1,0 +1,58 @@
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+<!-- isotope https://isotope.metafizzy.co/ -->
+<script src='https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js'></script>
+
+<!-- мой JS -->
+<script src={{ "js/isotope_devices.js" | absURL }}></script>
+<!-- <script src={{ "js/isotope_blog.js" | absURL }}></script> -->
+
+<!-- amazon oneTag code -->
+{{ if .Site.Params.amazon }}
+<div id="amzn-assoc-ad-2462a394-ba2d-41ad-9639-c4f87feead99"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=2462a394-ba2d-41ad-9639-c4f87feead99"></script>
+{{ end }}
+
+<!-- https://github.com/verlok/lazyload -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.5.2/lazyload.min.js"></script>
+
+
+{{ if .Site.Params.addthis }}
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ .Site.Params.addthis }}"></script>
+{{ end }}
+
+{{ template "_internal/google_analytics.html" . }}
+
+{{ if .Site.Params.metrika }}
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter{{ .Site.Params.metrika | safeJS }} = new Ya.Metrika({
+                    id:{{ .Site.Params.metrika | safeJS }},
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/{{ .Site.Params.metrika }}" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+{{ end }}

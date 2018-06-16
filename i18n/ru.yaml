@@ -1,0 +1,65 @@
+# Связь
+
+- id: contacts of the owner
+  translation: Контакты владельца сайта
+ 
+# Девайсы
+- id: brand
+  translation: Бренд
+
+- id: type
+  translation: Тип
+
+- id: key switches brand
+  translation: Бренд переключателей
+
+- id: headset acoustics
+  translation: Тип акустики
+
+- id: mouse sensor type
+  translation: Тип сенсора
+
+- id: mouse form
+  translation: Форма
+
+- id: mouse wire
+  translation: Провод
+
+- id: all devices
+  translation: Все девайсы
+
+- id: variants
+  translation: Варианты этого девайса
+
+# Наименования девайсов
+- id: mice
+  translation: Мышки
+
+- id: mousepads
+  translation: Коврики
+
+- id: keyboards
+  translation: Клавиатуры
+
+- id: monitors
+  translation: Мониторы
+
+- id: headsets
+  translation: Гарнитуры/Наушники
+
+# Навигация
+- id: all posts
+  translation: Все статьи
+
+- id: all pro players
+  translation: Все про игроки
+
+# Блокт с контентом
+- id: all posts from the blog
+  translation: Все посты и статьи
+
+- id: catalog of gaming devices
+  translation: Все игровые девайсы
+
+- id: all pro players
+  translation: Все про игроки

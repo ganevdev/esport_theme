@@ -1,0 +1,119 @@
+
+// сужаю весь сайт в целом
+// .container {
+//   max-width: 50rem;
+// }
+
+// Сделать все img внутри article респансив
+// https://getbootstrap.com/docs/4.1/content/images/
+article img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+// цвет ссылок как примари цвет из темы
+a {
+    color: $primary;
+}
+
+// https://getbootstrap.com/docs/4.1/components/card/#card-columns
+// Card columns can also be extended and customized with some additional code.
+// Бустраповский способо выводить карточки
+.card-columns {
+    @include media-breakpoint-only(xl) {
+        column-count: 2;
+        }
+    @include media-breakpoint-only(lg) {
+        column-count: 2;
+        }
+    @include media-breakpoint-only(md) {
+        column-count: 1;
+        }
+    @include media-breakpoint-only(sm) {
+        column-count: 1;
+        }
+    } 
+
+// cards action общая анимация для карточек при наведении
+// .card:hover {
+//     opacity: 0.5;
+// }
+
+.card {
+    // тень для карточек
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+// специальный стиль для карточек девайсов
+.card.devices_pre img {
+    max-height: 150px
+}
+
+.btn {
+    margin-top: 2px;
+    margin-bottom: 2px;
+
+    // было white-space: nowrap;
+    // что бы кнопки могли переносить текст внутри себя
+    white-space: normal; 
+}
+
+// специальный стиль для кнопок амазона
+// .btn.amazon {
+    
+// }
+
+.badge {
+    font-weight: 500;
+    line-height: inherit;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    // что бы кнопки могли переносить текст внутри себя
+    white-space: normal; 
+}
+
+// isotope
+.element-item {
+    width: 100%;
+}
+.grid-sizer,
+.grid-item { width: 40%; }
+
+// фиксированный размер картинок для фоток игроков в профилях
+.player_foto {
+    // max-width: 300px;
+    max-height: 300px;
+}
+
+hr {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    max-width: 30rem;
+}
+
+// https://habr.com/company/jugru/blog/358642/
+// Единица ch (character unit) основана на ширине символа «0» в данном шрифте.
+// @supports (display: grid) {
+//     article {
+//         display: grid;
+//         grid-template-columns: 
+//             [full-width-start] 1fr
+//             [content-start] repeat(12, minmax(0, 4,85ch))
+//             [content-end] 1fr
+//             [full-width-end];
+//         grid-row-gap: calc(var(--gutter, 1.5em));
+//     }
+
+//     article > * + * {
+//         margin: 0;
+//         grid-column: content;
+//     }
+
+//     article > .break-out {
+//         grid-column: full-width;
+//         justify-self: center;
+//         margin: calc(0.5 * var(--offset, 1.5em)) 0;
+//     }
+
+// }
+

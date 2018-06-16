@@ -1,0 +1,26 @@
+{{ $percent := .Get 1 }}
+
+{{ if len .Inner }}
+<div class="mx-auto card" style="max-width: 42rem;">
+<div class="card-body">
+{{ end }}
+
+{{ with .Site.GetPage "page" (.Get 0) }}
+{{ partial "teasers/device_card.html" . }}
+{{ end }}
+
+{{ if gt $percent 0 }}
+<p></p>
+<div class="progress" style="height: 32px; font-size: 1rem;">
+<div class="progress-bar" style="width: {{ $percent }}%;" role="progressbar" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">{{ $percent }} %</div>
+</div>
+<p></p>
+{{ end }}
+
+{{ if len .Inner }}
+{{ .Inner }}
+</div>
+</div>
+<p>&nbsp;</p>
+{{ end }}
+

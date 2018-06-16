@@ -1,0 +1,41 @@
+<nav class="navbar rounded navbar-expand-lg navbar-dark bg-danger">
+
+	<a class="navbar-brand" href="{{ .Site.BaseURL | relLangURL }}"><img src="/esportrat_logo_icon.svg" width="50" height="50" alt=""></a>
+	
+	<a class="navbar-brand" href="{{ .Site.BaseURL | relLangURL }}">
+	<strong>{{ .Site.Title }}</strong></a>
+
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+		
+		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+			{{ range .Site.Menus.main }}
+			<li class="nav-item">
+				<a class="nav-link" href='{{ .URL }}'>{{ .Name }}</a>
+			</li>
+			{{ end }}
+		</ul>
+
+	</div>
+
+	<div class="d-none d-sm-block d-md-block navbar-nav flex-row ml-md-auto d-none d-md-flex">
+		{{ with .Site.Params.vk }}
+		<span>
+			<a target="_blank" class="btn btn-info btn-shadow" href="https://vk.com/{{ . }}" role="button"><i class="fab fa-vk"></i></a>
+		</span>
+		<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		{{ end }}
+
+		{{ with .Site.Params.twitter }}
+		<span>
+			<a target="_blank" class="btn btn-success btn-shadow" href="https://twitter.com/{{ . }}" role="button"><i class="fab fa-twitter"></i></a>
+		</span>
+		<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		{{ end }}
+	</div>
+
+</nav>
+ 

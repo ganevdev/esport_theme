@@ -1,0 +1,25 @@
+{{ define "main" }}
+
+<article>
+    <header>
+        <div>
+            <h1 class="display-3">{{ .Title }}</h1>
+            <p class="lead">{{ .Description | markdownify }}</p>
+        </div>
+    </header>
+
+    <section id="post-body">
+        {{ .Content }}
+    </section>
+    
+    <p>{{ partial "date.html" . }}</p>
+
+</article>
+<p>&nbsp;</p>
+
+{{ partial "blocks/latest-posts.html" . }}
+{{ partial "blocks/top-devices.html" . }}
+{{ partial "blocks/top-proplayers.html" . }}
+
+{{ end }}
+ 

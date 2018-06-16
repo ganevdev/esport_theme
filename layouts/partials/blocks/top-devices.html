@@ -1,0 +1,24 @@
+<!-- блок показывающий топовые девайсы -->
+<div>
+
+<!-- только если тип контента Kind - page -->
+{{ $kind := where .Site.Pages "Kind" "page" }}
+
+<!-- убирает контент с той же ссылкой что контент на нынешней странице -->
+{{ $othr := where $kind "URL" "!=" .URL }}
+
+<!-- убирает контент с hide: true если этого параметра вообще нет то показывает -->
+{{ $no_hide := where $othr ".Params.hide" "!=" true }}
+
+{{ range first 10 ( where $no_hide "Section" "devices" ) }}
+    {{ partial "cards/devices.html" . }}
+{{ end }} 
+</div>
+
+<p></p>
+{{ partial "menus/devices.html" . }}
+<p><a class="btn btn-outline-primary btn-lg btn-block" href="/devices" role="button">
+    {{ i18n "catalog of gaming devices"}}</a></p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>   

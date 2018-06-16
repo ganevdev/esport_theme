@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+	<head>
+    {{ partial "head.html" . }}
+    </head>
+<body>
+
+    <div class="container">
+        <p></p>
+        {{ partial "nav.html" . }}
+        <p></p>
+
+        <div class="row">
+            <div class="col-12 col-xl-9">
+            {{ block "main" . }}{{ end }}
+            <p></p>
+            </div>
+            <div class="col-xl-3">
+            {{ partial "sidebar.html" . }}
+            </div>
+        </div>
+    </div>
+
+    {{ partial "footer.html" . }}
+    {{ partial "js.html" . }}
+
+</body>
+</html>
