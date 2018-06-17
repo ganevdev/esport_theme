@@ -1,26 +1,33 @@
+{{ $device := .Get 0 }}
 {{ $percent := .Get 1 }}
 
-{{ if len .Inner }}
-<div class="mx-auto card" style="max-width: 42rem;">
-<div class="card-body">
-{{ end }}
+<div class="mx-auto" style="max-width: 720px;">
 
-{{ with .Site.GetPage "page" (.Get 0) }}
+{{ $GetPage := .Site.GetPage "page" ($device) }}
+
+<p>&nbsp;</p>
+{{ with $GetPage }}
 {{ partial "teasers/device_card.html" . }}
+{{ else }}
+<div class="card">
+<div class="card-body">
+    <h4 class="text-center">{{ $device }}</h4>
+</div>
+</div>
 {{ end }}
 
-{{ if gt $percent 0 }}
+{{ if $percent }}
 <p></p>
 <div class="progress" style="height: 32px; font-size: 1rem;">
-<div class="progress-bar" style="width: {{ $percent }}%;" role="progressbar" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">{{ $percent }} %</div>
+    <div class="progress-bar" style="width: {{ $percent | safeHTMLAttr }}%;" role="progressbar" aria-valuenow="{{ $percent | safeHTMLAttr }}" aria-valuemin="0" aria-valuemax="100">{{ $percent | safeHTML }} %</div>
 </div>
 <p></p>
 {{ end }}
 
-{{ if len .Inner }}
+{{ if .Inner }}
 {{ .Inner }}
-</div>
-</div>
 <p>&nbsp;</p>
 {{ end }}
+
+</div>
 
