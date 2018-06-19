@@ -32,20 +32,65 @@
   translation: Variants of this device
 
 # Наименования девайсов
+- id: devices
+  translation: devices
+- id: Device
+  translation: Device
+
 - id: mice
   translation: Mice
+- id: Mouse
+  translation: Mice
+- id: mouse
+  translation: mouse
 
 - id: mousepads
   translation: Mousepads
+- id: Mousepad
+  translation: Mousepads
+- id: mousepad
+  translation: mousepad
 
 - id: keyboards
   translation: Keyboards
+- id: Keyboard
+  translation: Keyboards
+- id: keyboard
+  translation: keyboard
 
 - id: monitors
   translation: Monitors
+- id: Monitor
+  translation: Monitors
+- id: monitor
+  translation: monitor
 
 - id: headsets
   translation: Headsets/Headphones
+- id: Headset
+  translation: Headsets/Headphones
+- id: headset
+  translation: headset/headphone
+
+# Характеристики девайсов
+- id: optical
+  translation: Optical
+- id: laser
+  translation: Laser
+- id: ergonomic
+  translation: Ergonomic
+- id: ambidextrous
+  translation: Ambidextrous
+- id: wired
+  translation: Wired
+
+- id: closed
+  translation: Closed
+- id: open
+  translation: Open
+
+- id: switches
+  translation: switches
 
 # Навигация
 - id: all posts
@@ -53,6 +98,9 @@
 
 - id: all pro players
   translation: All pro players
+
+- id: all
+  translation: All
 
   # Блокт с контентом
 - id: all posts from the blog
@@ -63,3 +111,7 @@
 
 - id: all pro players
   translation: All pro players
+
+  # про игроки
+- id: Proplayers
+  translation: Proplayers

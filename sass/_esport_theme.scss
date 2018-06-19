@@ -85,10 +85,20 @@ a {
     max-height: 300px;
 }
 
+// изменить линию - сделать ее короче
 hr {
     margin-top: 2rem;
     margin-bottom: 3rem;
     max-width: 30rem;
+}
+
+// сделать одинакового размера card-title если размер экрана Large или Extra large
+.card-columns .card-title {
+    @include media-breakpoint-up(lg) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        }
 }
 
 // https://habr.com/company/jugru/blog/358642/

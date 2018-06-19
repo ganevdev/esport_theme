@@ -1,39 +1,39 @@
 {{ define "main" }}
   
-<h1 class="display-3">{{ .Title }}</h1>
+<h1 class="display-3">{{ i18n .Title }}</h1>
 
 {{ partial "menus/devices.html" . }}
 
 <div class="btn-group filter-button-group button-group" data-filter-group="all">
-    <button class="btn btn-outline-primary active" data-filter="*">All {{ .Title }}</button>
+    <button class="btn btn-outline-primary active" data-filter="*">{{ i18n "all" }} {{ i18n .Title }}</button>
 </div>
 
 {{ if hasPrefix .URL "/devices/mouse/" }}
 <div class="btn-group filter-button-group button-group" data-filter-group="mouse_sensor">
-    <button class="btn btn-outline-primary" data-filter=".optical">Optical</button>
-    <button class="btn btn-outline-primary" data-filter=".laser">Laser</button>
+    <button class="btn btn-outline-primary" data-filter=".optical">{{ i18n "optical" }}</button>
+    <button class="btn btn-outline-primary" data-filter=".laser">{{ i18n "laser" }}</button>
 </div>
 
 <div class="btn-group filter-button-group button-group" data-filter-group="mouse_form">
-    <button class="btn btn-outline-primary" data-filter=".ergonomic">Ergonomic</button>
-    <button class="btn btn-outline-primary" data-filter=".ambidextrous">Ambidextrous</button>
+    <button class="btn btn-outline-primary" data-filter=".ergonomic">{{ i18n "ergonomic" }}</button>
+    <button class="btn btn-outline-primary" data-filter=".ambidextrous">{{ i18n "ambidextrous" }}</button>
 </div>
 
 <div class="btn-group filter-button-group button-group" data-filter-group="mouse_wire">
-    <button class="btn btn-outline-primary" data-filter=".wired">Wired</button>
+    <button class="btn btn-outline-primary" data-filter=".wired">{{ i18n "wired" }}</button>
 </div>
 {{ end }}
 
 {{ if hasPrefix .URL "/devices/headset" }}
 <div class="btn-group filter-button-group button-group" data-filter-group="headset_acoustics">
-    <button class="btn btn-outline-primary" data-filter=".closed">Closed</button>
-    <button class="btn btn-outline-primary" data-filter=".open">Open</button>
+    <button class="btn btn-outline-primary" data-filter=".closed">{{ i18n "closed" }}</button>
+    <button class="btn btn-outline-primary" data-filter=".open">{{ i18n "open" }}</button>
 </div>
 {{ end }}
 
 {{ if hasPrefix .URL "/devices/keyboard" }}
 <div class="btn-group filter-button-group button-group" data-filter-group="keyswitches_brands">
-    <button class="btn btn-outline-primary" data-filter=".romer-g">Romer-G</button>
+    <button class="btn btn-outline-primary" data-filter=".logitech-switches">Logitech</button>
     <button class="btn btn-outline-primary" data-filter=".cherry-mx">Cherry MX</button>
     <button class="btn btn-outline-primary" data-filter=".kailh">Kailh</button>
 </div>

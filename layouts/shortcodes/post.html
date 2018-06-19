@@ -1,0 +1,5 @@
+{{ with .Site.GetPage "page" (.Get 0) }}
+<p>&nbsp;</p>
+{{ partial "teasers/post.html" . }}
+<p>&nbsp;</p>
+{{ end }}

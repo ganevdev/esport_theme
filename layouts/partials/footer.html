@@ -3,33 +3,38 @@
         <hr> 
         <p>&nbsp;</p>
         <div id="social">
-            
-        {{ with .Site.Params.vk }}
-        <span><a target="_blank" class="btn btn-primary btn-lg btn-shadow" href="https://vk.com/{{ . }}" role="button"><i class="fab fa-vk"></i>&nbsp;&nbsp;@{{ . }}</a></span>
-        <span>&nbsp;&nbsp;&nbsp;</span>
+        <ul class="list-unstyled">
+
+        {{ if .Site.Params.vk }}
+        <li class="h3"><i class="fab fa-vk"></i>&nbsp;
+            {{ .Site.Params.vk_description }}: 
+        <a target="_blank" href="https://vk.com/{{ .Site.Params.vk }}">@{{ .Site.Params.vk }}</a></li>
         {{ end }}
         
-        {{ with .Site.Params.twitter }}
-        <span><a target="_blank" class="btn btn-success btn-lg btn-shadow" href="https://twitter.com/intent/follow?screen_name={{ . }}" role="button"><i class="fab fa-twitter"></i>&nbsp;&nbsp;@{{ . }}</a></span>
-        <span>&nbsp;&nbsp;&nbsp;</span>
+        {{ if .Site.Params.twitter }}
+        <li class="h3"><i class="fab fa-twitter-square"></i>&nbsp;
+            {{ .Site.Params.twitter_description }}: 
+        <a target="_blank" href="https://twitter.com/intent/follow?screen_name={{ .Site.Params.twitter }}">@{{ .Site.Params.twitter }}</a></li>
         {{ end }}
         
         {{ if .Site.Params.mail }}
-        <span><strong>{{ .Site.Params.mail }}</strong> - {{ .Site.Params.mail_description }}</span>
+        <li><i class="fas fa-envelope"></i>&nbsp;
+            {{ .Site.Params.mail_description }}: <strong>{{ .Site.Params.mail }}</strong></li>
         {{ end }}
 
+        </ul>
         </div>
         <p>&nbsp;</p>
 
-        <p>
-        {{ i18n "contacts of the owner" }}:<br>
+        <ul class="list-unstyled">
+        <li>{{ i18n "contacts of the owner" }}:</li>
         {{ if .Site.Params.admin_twitter }}
-        <a target="_blank" href="https://twitter.com/{{ .Site.Params.admin_twitter }}">@{{ .Site.Params.admin_twitter }}</a> - {{ .Site.Params.admin_twitter_description }}<br>
+        <li><a target="_blank" href="https://twitter.com/{{ .Site.Params.admin_twitter }}">@{{ .Site.Params.admin_twitter }}</a> - {{ .Site.Params.admin_twitter_description }}</li>
         {{ end }}
         {{ if .Site.Params.admin_mail }}
-        <strong>{{ .Site.Params.admin_mail }}</strong> - {{ .Site.Params.admin_mail_description }}
+        <li><strong>{{ .Site.Params.admin_mail }}</strong> - {{ .Site.Params.admin_mail_description }}</li>
         {{ end }}
-        </p>
+        </ul>
 
         {{ if .Site.Params.amazon_id }}
         <p>&nbsp;</p>

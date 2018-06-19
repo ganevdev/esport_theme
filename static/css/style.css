@@ -9838,3 +9838,11 @@ hr {
   margin-bottom: 3rem;
   max-width: 30rem;
 }
+
+@media (min-width: 992px) {
+  .card-columns .card-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

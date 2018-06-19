@@ -1,6 +1,6 @@
 {{ define "main" }}
     
-    <h1 class="display-3">{{ .Title }}</h1>
+    <h1 class="display-3">{{ i18n .Title }}</h1>
 
     <div>
     {{ range where .Paginator.Pages ".Params.hide" "!=" true }}

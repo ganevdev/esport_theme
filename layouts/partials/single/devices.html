@@ -23,7 +23,8 @@
                 {{ if ge (len .) 1 }}
                     <li>{{ i18n "type" }}: 
                     {{ range . }}
-                        <a class="badge badge-primary" href="/devices/{{ . | urlize }}">{{ . }}</a>
+                        <a class="badge badge-primary" href="/devices/{{ . | urlize }}">
+                            {{ lower (i18n .) }}</a>
                     {{ end }}
                     </li>
                 {{ end }}
@@ -33,7 +34,8 @@
                 {{ if ge (len .) 1 }}
                     <li>{{ i18n "brand" }}:
                     {{ range . }}
-                    <a class="badge badge-primary" href="/brands/{{ . | urlize }}">{{ . }}
+                    <a class="badge badge-primary" href="/brands/{{ . | urlize }}">
+                        {{ . }}
                     </a>
                     {{ end }}
                     </li>
@@ -45,7 +47,8 @@
                 {{ with .Params.keyswitches_brands }}
                 {{ if ge (len .) 1 }}
                     <li>{{ i18n "key switches brand" }}: 
-                    {{ range . }}<a class="badge badge-primary" href="/devices/keyboard/#f=.{{ . | urlize }}">{{ . }}</a>{{ end }}
+                    {{ range . }}<a class="badge badge-primary" href="/devices/keyboard/#f=.{{ . | urlize }}">
+                        {{ . }}</a>{{ end }}
                     </li>
                 {{ end }}
                 {{ end }}
@@ -53,7 +56,8 @@
                 {{ with .Params.headset_acoustics }}
                 {{ if ge (len .) 1 }}
                     <li>{{ i18n "headset acoustics" }}: 
-                    {{ range . }}<a class="badge badge-primary" href="/devices/headset/#f=.{{ . | urlize }}">{{ . }}</a>{{ end }}
+                    {{ range . }}<a class="badge badge-primary" href="/devices/headset/#f=.{{ . | urlize }}">
+                        {{ lower (i18n .) }}</a>{{ end }}
                     </li>
                 {{ end }}
                 {{ end }}
@@ -61,7 +65,8 @@
                 {{ with .Params.mouse_sensor }}
                 {{ if ge (len .) 1 }}
                     <li>{{ i18n "mouse sensor type" }}: 
-                    {{ range . }}<a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">{{ . }}</a>{{ end }}
+                    {{ range . }}<a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">
+                        {{ lower (i18n .) }}</a>{{ end }}
                     </li>
                 {{ end }}
                 {{ end }}
@@ -69,7 +74,8 @@
                 {{ with .Params.mouse_form }}
                 {{ if ge (len .) 1 }}
                     <li>{{ i18n "mouse form" }}: 
-                    {{ range . }}<a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">{{ . }}</a>{{ end }}
+                    {{ range . }}<a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">
+                        {{ lower (i18n .) }}</a>{{ end }}
                     </li>
                 {{ end }}
                 {{ end }}
@@ -79,7 +85,7 @@
                     <li>{{ i18n "mouse wire" }}: 
                     {{ range . }}
                     <a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">
-                        {{ . }}</a>{{ end }}
+                        {{ lower (i18n .) }}</a>{{ end }}
                     </li>
                 {{ end }}
                 {{ end }}

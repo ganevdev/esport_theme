@@ -32,20 +32,67 @@
   translation: Варианты этого девайса
 
 # Наименования девайсов
+- id: devices
+  translation: Девайсы
+- id: Devices
+  translation: Девайсы
+- id: Device
+  translation: Девайсы
+
 - id: mice
   translation: Мышки
+- id: Mouse
+  translation: Мышки
+- id: mouse
+  translation: мышка
 
 - id: mousepads
   translation: Коврики
+- id: Mousepad
+  translation: Коврики
+- id: mousepad
+  translation: коврик
 
 - id: keyboards
   translation: Клавиатуры
+- id: Keyboard
+  translation: Клавиатуры
+- id: keyboard
+  translation: клавиатура
 
 - id: monitors
   translation: Мониторы
+- id: Monitor
+  translation: Мониторы
+- id: monitor
+  translation: монитор
 
 - id: headsets
   translation: Гарнитуры/Наушники
+- id: Headset
+  translation: Гарнитуры/Наушники
+- id: headset
+  translation: гарнитура/наушники
+
+# Характеристики девайсов
+- id: optical
+  translation: Оптическая
+- id: laser
+  translation: Лазерная
+- id: ergonomic
+  translation: Эргономическая
+- id: ambidextrous
+  translation: Симметричная
+- id: wired
+  translation: Проводная
+
+- id: closed
+  translation: Закрытые
+- id: open
+  translation: Открытые
+
+- id: switches
+  translation: переключатели
 
 # Навигация
 - id: all posts
@@ -53,6 +100,9 @@
 
 - id: all pro players
   translation: Все про игроки
+
+- id: all
+  translation: Все
 
 # Блокт с контентом
 - id: all posts from the blog
@@ -63,3 +113,7 @@
 
 - id: all pro players
   translation: Все про игроки
+
+  # про игроки
+- id: Proplayers
+  translation: Профессиональные игроки
