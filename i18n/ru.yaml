@@ -3,6 +3,15 @@
 - id: contacts of the owner
   translation: Контакты владельца сайта
  
+- id: Last updated
+  translation: Последнее обновление
+
+- id: Source of information
+  translation: Источник информации
+
+- id: Name
+  translation: Имя
+
 # Девайсы
 - id: brand
   translation: Бренд
@@ -117,3 +126,24 @@
   # про игроки
 - id: Proplayers
   translation: Профессиональные игроки
+
+  # single про игрока
+- id: settings
+  translation: настройки
+
+- id: in game
+  translation: игровые
+
+- id: crosshair
+  translation: прицел
+
+- id: code
+  translation: код
+
+  # комбо
+- id: crosshair settings
+  translation: настройки прицела
+- id: mouse settings
+  translation: настройки мышки
+- id: monitor settings
+  translation: настройки монитора

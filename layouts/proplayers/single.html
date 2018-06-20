@@ -10,7 +10,7 @@
         <div class="col-lg-8">
             <h1 class="display-3">{{ .Title }}</h1>
             <p class="lead">{{ .Description | markdownify }}</p>
-            <p><b>Name:</b> {{ .Params.Name }}</p>
+            <p><b>{{ i18n "Name" }}:</b> {{ .Params.Name }}</p>
             {{ if .Params.Alternate_IDs }}
             <p><b>Alternate IDs:</b> {{ .Params.Alternate_IDs }}</p>
             {{ end }}
@@ -24,23 +24,23 @@
     <section>
     <div class="card">
     <div class="card-body">
-    <h2>{{ .Params.ID }} in game settings:</h2>
+    <h2>{{ .Params.ID }} {{ i18n "in game" }} {{ i18n "settings" }}:</h2>
     
     {{ if .Params.liq_mouse_settings }}
     <p></p>
-    <h3>{{ .Params.ID }} mouse settings:</h3>
+    <h3>{{ .Params.ID }} {{ i18n "mouse settings" }}:</h3>
     {{ .Params.liq_mouse_settings | safeHTML }}
     {{ end }}
 
     {{ if .Params.liq_crosshair_settings }}
     <p></p>
-    <h3>{{ .Params.ID }} crosshair settings:</h3>
+    <h3>{{ .Params.ID }} {{ i18n "crosshair settings" }}:</h3>
     {{ .Params.liq_crosshair_settings | safeHTML }}
     {{ end }}
     
     {{ if .Params.liq_crosshair_code }}
     <p></p>
-    <h3>{{ .Params.ID }} crosshair settings code:</h3>
+    <h3>{{ .Params.ID }} {{ i18n "crosshair settings" }} {{ i18n "code" }}:</h3>
     <div class="small alert alert-light"><samp>
     {{ .Params.liq_crosshair_code | safeHTML }}
     </samp></div>
@@ -48,7 +48,7 @@
 
     {{ if .Params.liq_monitor_set }}
     <p></p>
-    <h3>{{ .Params.ID }} monitor settings:</h3>
+    <h3>{{ .Params.ID }} {{ i18n "monitor settings" }}:</h3>
     {{ .Params.liq_monitor_set | safeHTML }}
     {{ end }}
 
@@ -65,43 +65,50 @@
     <section>
     <div class="card">
     <div class="card-body">
-    <h2>Periphery that the {{ .Params.ID }} uses:</h2>
+    
+    <h2>
+    {{ if eq .Site.Language.Lang "ru" }}
+    Переферия которую использует {{ .Params.ID }}:
+    {{ else }}
+    Periphery that the {{ .Params.ID }} uses:
+    {{ end }}
+    </h2>
 
     <ul class="list-unstyled">
 
     {{ if .Params.liq_mouse }}
     {{ $liq_mouse := print "devices/mouse/" .Params.liq_mouse ".md" }}
     {{ if (fileExists $liq_mouse) -}}
-    <li>{{ .Params.ID }} mouse: 
+    <li>{{ .Params.ID }} {{ i18n "mouse" }}: 
     {{ with .Site.GetPage "page" $liq_mouse }}
     {{ partial "teasers/device.html" . }}</li>
     {{ end }}
     {{ else }}
-    <li>{{ .Params.ID }} mouse: <button class="btn btn-link" disabled>{{ .Params.liq_mouse }}</button></li>
+    <li>{{ .Params.ID }} {{ i18n "mouse" }}: <button class="btn btn-link" disabled>{{ .Params.liq_mouse }}</button></li>
     {{- end }}
     {{ end }}
 
     {{ if .Params.liq_mousepad }}
     {{ $liq_mousepad := print "devices/mousepad/" .Params.liq_mousepad ".md" }}
     {{ if (fileExists $liq_mousepad) -}}
-    <li>{{ .Params.ID }} mousepad: 
+    <li>{{ .Params.ID }} {{ i18n "mousepad" }}: 
     {{ with .Site.GetPage "page" $liq_mousepad }}
     {{ partial "teasers/device.html" . }}</li>
     {{ end }}
     {{ else }}
-    <li>{{ .Params.ID }} mousepad: <button class="btn btn-link" disabled>{{ .Params.liq_mousepad }}</button></li>
+    <li>{{ .Params.ID }} {{ i18n "mousepad" }}: <button class="btn btn-link" disabled>{{ .Params.liq_mousepad }}</button></li>
     {{- end }}
     {{ end }}
 
     {{ if .Params.liq_keyboard }}
     {{ $liq_keyboard := print "devices/keyboard/" .Params.liq_keyboard ".md" }}
     {{ if (fileExists $liq_keyboard) -}}
-    <li>{{ .Params.ID }} keyboard: 
+    <li>{{ .Params.ID }} {{ i18n "keyboard" }}: 
     {{ with .Site.GetPage "page" $liq_keyboard }}
     {{ partial "teasers/device.html" . }}</li>
     {{ end }}
     {{ else }}
-    <li>{{ .Params.ID }} keyboard: <button class="btn btn-link" disabled>{{ .Params.liq_keyboard }}</button></li>
+    <li>{{ .Params.ID }} {{ i18n "keyboard" }}: <button class="btn btn-link" disabled>{{ .Params.liq_keyboard }}</button></li>
     {{- end }}
     {{ end }}
 
@@ -111,36 +118,36 @@
     <!-- проверка есть ли такой материал -->
     {{ if (fileExists $liq_headset) -}}
     <!-- ищет и показывает девайс в контенте сайта -->
-    <li>{{ .Params.ID }} headset: 
+    <li>{{ .Params.ID }} {{ i18n "headset" }}: 
     {{ with .Site.GetPage "page" $liq_headset }}
     {{ partial "teasers/device.html" . }}</li>
     {{ end }}
     <!-- если такого файла НЕ существует, то просто пишу что есть в параметре liq_ -->
     {{ else }}
-    <li>{{ .Params.ID }} headset: <button class="btn btn-link" disabled>{{ .Params.liq_headset }}</button></li>
+    <li>{{ .Params.ID }} {{ i18n "headset" }}: <button class="btn btn-link" disabled>{{ .Params.liq_headset }}</button></li>
     {{- end }}
     {{ end }}
 
     {{ if .Params.liq_monitor }}
     {{ $liq_monitor := print "devices/monitor/" .Params.liq_monitor ".md" }}
     {{ if (fileExists $liq_monitor) -}}
-    <li>{{ .Params.ID }} monitor: 
+    <li>{{ .Params.ID }} {{ i18n "monitor" }}: 
     {{ with .Site.GetPage "page" $liq_monitor }}
     {{ partial "teasers/device.html" . }}</li>
     {{ end }}
     {{ else }}
-    <li>{{ .Params.ID }} monitor: <button class="btn btn-link" disabled>{{ .Params.liq_monitor }}</button></li>
+    <li>{{ .Params.ID }} {{ i18n "monitor" }}: <button class="btn btn-link" disabled>{{ .Params.liq_monitor }}</button></li>
     {{- end }}
     {{ end }}
 
     {{ if .Params.liq_Last_updated }}
-    <li>Last updated: <em>{{ dateFormat "Jan 2, 2006" .Params.liq_Last_updated }}</em></li>
+    <li>{{ i18n "Last updated" }}: <em>{{ dateFormat "Jan 2, 2006" .Params.liq_Last_updated }}</em></li>
     {{ end }}
 
     {{ if ( .Params.liq_mouse | or .Params.liq_mousepad | or .Params.liq_keyboard | or .Params.liq_headset | or .Params.liq_monitor ) }}
     <!-- секция должна отображаться только если НЕ пусто в одном из liq_ -->
     <p></p>
-    <p class="small">Source of information - liquipedia.net<br><a href="https://liquipedia.net/counterstrike">liquipedia.net/counterstrike</a></p>
+    <p class="small">{{ i18n "Source of information" }} - liquipedia.net<br><a href="https://liquipedia.net/counterstrike">liquipedia.net/counterstrike</a></p>
     {{ end }}
 
     </ul>

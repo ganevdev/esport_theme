@@ -1,5 +1,8 @@
-{{ if .Params.player_foto }}
-<img class="rounded img-fluid player_foto" src="{{ .Params.player_foto }}" alt="{{ .Params.title }}"></img>
-{{ else }}
-<img class="rounded img-fluid player_foto" src="/user.jpg"></img>
-{{ end }}
+<img 
+class="rounded img-fluid player_foto" 
+src="
+https://res.cloudinary.com/dnvvwy6uq/image/upload/c_thumb,g_face,h_350,w_600
+{{ substr .URL 0 -1 | safeURL }}.jpg" 
+onerror="this.src='/user.jpg'" 
+alt="{{ .Params.title }}">
+</img>
