@@ -1,3 +1,6 @@
-{{ with .Site.GetPage "page" (.Get 0) }}
+{{ $proplayer := (.Get 0) }}
+{{ $proplayer := lower $proplayer }}
+{{ with .Site.GetPage "page" $proplayer }}
 {{ partial "teasers/proplayer_card.html" . }}
+<p></p>
 {{ end }}
