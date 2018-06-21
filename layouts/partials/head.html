@@ -32,6 +32,24 @@
 {{ end }} 
 
 {{ template "_internal/schema.html" . }}
-{{ template "_internal/opengraph.html" . }}
 {{ template "_internal/twitter_cards.html" . }}
-   
+{{ template "partials/opengraph.html" . }}
+
+<!-- мета теги og opengraph для картинок если в материале есть banner -->
+{{ if .Params.banner }}
+
+    {{ $img := print "images/banners/" .Params.banner }}
+    <meta property="og:image" content="{{ $img | absURL }}" />
+
+{{ else }}
+<!-- если баннер НЕТУ значит подхватывать картинки в зависимости от матеиалов
+на случай если в баннер про игрока или девайса я вставлю спец картинку -->
+
+    <!-- opengraph для про игроков -->
+    {{ if eq .Section "proplayers" }}
+    {{ $img := print "images/banners/" .Params.banner }}
+    <meta property="og:image" 
+    content="https://res.cloudinary.com/dnvvwy6uq/image/upload{{ substr .URL 0 -1 | safeURL }}.jpg" />
+    {{ end }}
+
+{{ end }}
