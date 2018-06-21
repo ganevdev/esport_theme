@@ -11,15 +11,15 @@
         {{ partial "nav.html" . }}
         <p></p>
 
-        {{ if .Site.Params.adsense_banners }}
+        {{ if .Site.Params.adsense_banner_after_nav }}
         <p></p>
         <div class="text-center" style="max-height: 120px">
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- CyberSet.org -->
             <ins class="adsbygoogle"
                 style="display:block"
-                data-ad-client="ca-pub-8497873338471748"
-                data-ad-slot="4362922660"
+                data-ad-client="{{ .Site.Params.adsense_id }}"
+                data-ad-slot="{{ .Site.Params.adsense_banner_after_nav }}"
                 data-ad-format="auto"></ins>
             <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
@@ -32,24 +32,6 @@
             <div class="col-12 col-xl-9">
             {{ block "main" . }}{{ end }}
             <p></p>
-            
-            {{ if .Site.Params.adsense_banners }}
-            <p></p>
-            <div class="text-center" style="max-height: 120px">
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- CyberSet.org -->
-                <ins class="adsbygoogle"
-                    style="display:block"
-                    data-ad-client="ca-pub-8497873338471748"
-                    data-ad-slot="4362922660"
-                    data-ad-format="auto"></ins>
-                <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-            <p></p>
-            {{ end }}
-
             <p></p>
             </div>
             <div class="col-xl-3">
@@ -57,15 +39,15 @@
             </div>
         </div>
 
-        {{ if .Site.Params.adsense_banners }}
+        {{ if .Site.Params.adsense_banner_before_footer }}
         <p></p>
         <div class="text-center">
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- CyberSet.org -->
             <ins class="adsbygoogle"
                 style="display:block"
-                data-ad-client="ca-pub-8497873338471748"
-                data-ad-slot="4362922660"
+                data-ad-client="{{ .Site.Params.adsense_id }}"
+                data-ad-slot="{{ .Site.Params.adsense_banner_before_footer }}"
                 data-ad-format="auto"></ins>
             <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
