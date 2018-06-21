@@ -2,9 +2,21 @@
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
-{{ with .Params.images }}{{ range first 6 . }}
-  <meta property="og:image" content="{{ . | absURL }}" />
-{{ end }}{{ end }}
+
+<!-- мета теги og opengraph для картинок если в материале есть banner -->
+{{ if .Params.banner }}
+    {{ $img := print "images/banners/" .Params.banner }}
+    <meta property="og:image" content="{{ $img | absURL }}" />
+{{ else }}
+<!-- если баннер НЕТУ значит подхватывать картинки в зависимости от матеиалов
+на случай если в баннер про игрока или девайса я вставлю спец картинку -->
+    <!-- opengraph для про игроков -->
+    {{ if eq .Section "proplayers" }}
+    {{ $img := print "images/banners/" .Params.banner }}
+    <meta property="og:image" 
+    content="https://res.cloudinary.com/dnvvwy6uq/image/upload{{ substr .URL 0 -1 | safeURL }}.jpg" />
+    {{ end }}
+{{ end }}
 
 {{ if .IsPage }}
 {{ if not .PublishDate.IsZero }}<meta property="article:published_time" content="{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" | safeHTML }}"/>
