@@ -29,14 +29,17 @@
         {{ end }}
 
         <div class="row">
+            
             <div class="col-12 col-xl-9">
             {{ block "main" . }}{{ end }}
             <p></p>
             <p></p>
             </div>
-            <div class="col-xl-3">
+            
+            <div class="col-xl-3 d-none d-xl-block">
             {{ partial "sidebar.html" . }}
             </div>
+
         </div>
 
         {{ if .Site.Params.adsense_banner_before_footer }}
