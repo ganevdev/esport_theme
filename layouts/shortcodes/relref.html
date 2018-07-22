@@ -9,6 +9,6 @@
 	{{- with .Site.GetPage "section" (.Get 0) }}
 		{{- .URL -}}
 	{{- else -}}
-		{{- .Get 0 | relref .Page -}}
+		<p></p>
 	{{- end -}}
 {{- end -}}

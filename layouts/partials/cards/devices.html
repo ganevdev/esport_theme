@@ -1,11 +1,11 @@
-<div class="element-item
-{{ with .Params.devices }}{{ range . }} {{ . | urlize }} {{ end }}{{ end }}
-{{ with .Params.brands }}{{ range . }} {{ . | urlize }} {{ end }}{{ end }}
-{{ with .Params.mouse_sensor }}{{ range . }} {{ . | urlize }} {{ end }}{{ end }}
-{{ with .Params.mouse_form }}{{ range . }} {{ . | urlize }} {{ end }}{{ end }}
-{{ with .Params.mouse_wire }}{{ range . }} {{ . | urlize }} {{ end }}{{ end }}
-{{ with .Params.headset_acoustics }}{{ range . }} {{ . | urlize }} {{ end }}{{ end }}
-{{ with .Params.keyswitches_brands }}{{ range . }} {{ . | urlize }} {{ end }}{{ end }}">
+<div class="element-item 
+{{ with .Params.devices }} {{ . | urlize }} {{ end }}
+{{ with .Params.brands }} {{ range . }} {{ . | urlize }} {{ end }} {{ end }}
+{{ with .Params.mouse_sensor }} {{ . | urlize }} {{ end }}
+{{ with .Params.mouse_form }} {{ . | urlize }} {{ end }}
+{{ with .Params.mouse_wire }} {{ . | urlize }} {{ end }}
+{{ with .Params.headset_acoustics }} {{ . | urlize }} {{ end }}
+{{ with .Params.keyswitches_brands }} {{ . | urlize }} {{ end }}">
     <div class="card border-light devices_pre">
         <div class="card-body">
             <div class="row">
@@ -26,12 +26,12 @@
                         <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
                     </h3>
                     
+                    <!-- тэге-бейджи -->
+                    <p>
                     {{ with .Params.devices }}
                     {{ if ge (len .) 1 }}
-                        {{ range . }}
                             <a class="badge badge-primary" href="/devices/{{ . | urlize }}">
                                 {{ lower (i18n .) }}</a>
-                        {{ end }}
                     {{ end }}
                     {{ end }}
     
@@ -46,49 +46,63 @@
 
                     {{ with .Params.keyswitches_brands }}
                     {{ if ge (len .) 1 }}
-                        {{ range . }}
                     <a class="badge badge-primary" href="/devices/keyboard/#f=.{{ . | urlize }}">
                     {{ . }}</a>
-                        {{ end }}
                     {{ end }}
                     {{ end }}
     
                     {{ with .Params.headset_acoustics }}
                     {{ if ge (len .) 1 }}
-                        {{ range . }}
                     <a class="badge badge-primary" href="/devices/headset/#f=.{{ . | urlize }}">
                     {{ lower (i18n .) }}</a>
-                        {{ end }}
                     {{ end }}
                     {{ end }}
 
                     {{ with .Params.mouse_sensor }}
                     {{ if ge (len .) 1 }}
-                        {{ range . }}
-                    <a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">
-                    {{ lower (i18n .) }}</a>
-                        {{ end }}
+                        <a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">
+                        {{ lower (i18n .) }}</a>
                     {{ end }}
                     {{ end }}
 
                     {{ with .Params.mouse_form }}
                     {{ if ge (len .) 1 }}
-                        {{ range . }}
-                    <a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">
-                    {{ lower (i18n .) }}</a>
-                        {{ end }}
+                        <a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">
+                        {{ lower (i18n .) }}</a>
                     {{ end }}
                     {{ end }}
 
                     {{ with .Params.mouse_wire }}
                     {{ if ge (len .) 1 }}
-                        {{ range . }}
-                    <a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">
-                    {{ lower (i18n .) }}</a>
-                        {{ end }}
+                        <a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">
+                        {{ lower (i18n .) }}</a>
                     {{ end }}
                     {{ end }}
+                    </p>
 
+                    <!-- проценты про игроков -->
+                    <p>
+
+                        {{ if gt (.Params.all_games_percent) 0 }}
+                            <p class="small text-muted">
+                            {{ if eq .Site.Language.Lang "ru" }}
+                            Статистика использования киберспортсменами:
+                            {{ else }}
+                            Statistics of use by pro gamers:
+                            {{ end }}
+                            </p>
+                            {{ end }}
+
+                            {{ if gt (.Params.csgo_percent) 0 }}
+                            <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: {{ .Params.csgo_percent }}%" aria-valuenow="{{ .Params.csgo_percent }}" aria-valuemin="0" aria-valuemax="100">
+                            CS:GO: {{ .Params.csgo_percent }}%
+                            </div>
+                            </div>
+                        {{ end }}
+                    </p>
+
+                    <!-- амазон -->
                     {{ if .Site.Params.amazon_id }}
                     {{ if .Site.Params.amazon_buttons }}
                     {{ if .Params.ASIN }}
@@ -102,7 +116,8 @@
                     {{ end }}
 
                 </div>
+                <p></p>
             </div>
         </div>
     </div>
-</div> 
+</div>

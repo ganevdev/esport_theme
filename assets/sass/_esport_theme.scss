@@ -127,3 +127,13 @@ hr {
 
 // }
 
+// http://getbootstrap.com/docs/4.1/components/progress/
+// увеличиваю высоту прогресс бара (колонки загрузки)
+.progress {
+    height: 2rem;
+    font-size: 1.2rem;
+    background-color: #cccccc;
+}
+.progress-bar {
+    text-shadow: 0.5px 0.5px 0.5px #5f5f5f;
+}

@@ -45,6 +45,8 @@
   translation: devices
 - id: Device
   translation: Device
+- id: Devices
+  translation: Devices
 
 - id: mice
   translation: Mice
@@ -110,6 +112,11 @@
 
 - id: all
   translation: All
+
+- id: game
+  translation: game
+- id: Game
+  translation: Game
 
   # Блокт с контентом
 - id: all posts from the blog

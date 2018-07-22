@@ -10,7 +10,7 @@
 <!-- убирает контент с hide: true если этого параметра вообще нет то показывает -->
 {{ $no_hide := where $othr ".Params.hide" "!=" true }}
 
-{{ range first 10 ( where $no_hide "Section" "devices" ) }}
+{{ range first 20 (( where $no_hide "Section" "devices" ).ByParam "all_games_percent").Reverse }} 
     {{ partial "cards/devices.html" . }}
 {{ end }} 
 </div>

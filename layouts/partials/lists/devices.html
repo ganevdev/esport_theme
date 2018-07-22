@@ -1,11 +1,8 @@
-{{ define "main" }}
-  
-<h1 class="display-3">{{ i18n .Title }}</h1>
-
 {{ partial "menus/devices.html" . }}
 
 <div class="btn-group filter-button-group button-group" data-filter-group="all">
-    <button class="btn btn-outline-primary active" data-filter="*">{{ i18n "all" }} {{ i18n .Title }}</button>
+    <button class="btn btn-outline-primary active" data-filter="*">
+        {{ i18n "all" }} {{ i18n .Title }}</button>
 </div>
 
 {{ if hasPrefix .URL "/devices/mouse/" }}
@@ -33,19 +30,22 @@
 
 {{ if hasPrefix .URL "/devices/keyboard" }}
 <div class="btn-group filter-button-group button-group" data-filter-group="keyswitches_brands">
-    <button class="btn btn-outline-primary" data-filter=".logitech-switches">Logitech</button>
     <button class="btn btn-outline-primary" data-filter=".cherry-mx">Cherry MX</button>
     <button class="btn btn-outline-primary" data-filter=".kailh">Kailh</button>
+    <button class="btn btn-outline-primary" data-filter=".logitech-switches">Logitech Switches</button>
+    <button class="btn btn-outline-primary" data-filter=".razer-switches">Razer Switches</button>
 </div>
 {{ end }}
 
 <p>&nbsp;</p>
 
+<!-- https://discourse.gohugo.io/t/sorting-blog-posts-in-descending-order/1427 -->
+<!-- https://discourse.gohugo.io/t/range-pages-byparam-reverse-year-not-working/11242 -->
 <div class="isotope_devices">
-    {{ range where .Data.Pages ".Params.hide" "!=" true }}
+    <!-- range where .Data.Pages ".Params.hide" "!=" true -->
+    <!-- range (.Pages.ByParam "all_games_percent").Reverse -->
+    {{ range ((where .Data.Pages ".Params.hide" "!=" true).ByParam "all_games_percent").Reverse }}
         {{ partial "cards/devices.html" . }}
     {{ end }}
 </div>
 
-
-{{ end }}

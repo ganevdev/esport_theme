@@ -1,5 +1,3 @@
-{{ define "main" }} 
-        
 <article>
     <header>
         <div class="row">
@@ -22,10 +20,8 @@
                 {{ with .Params.devices }}
                 {{ if ge (len .) 1 }}
                     <li>{{ i18n "type" }}: 
-                    {{ range . }}
                         <a class="badge badge-primary" href="/devices/{{ . | urlize }}">
                             {{ lower (i18n .) }}</a>
-                    {{ end }}
                     </li>
                 {{ end }}
                 {{ end }}
@@ -47,8 +43,8 @@
                 {{ with .Params.keyswitches_brands }}
                 {{ if ge (len .) 1 }}
                     <li>{{ i18n "key switches brand" }}: 
-                    {{ range . }}<a class="badge badge-primary" href="/devices/keyboard/#f=.{{ . | urlize }}">
-                        {{ . }}</a>{{ end }}
+                    <a class="badge badge-primary" href="/devices/keyboard/#f=.{{ . | urlize }}">
+                        {{ . }}</a>
                     </li>
                 {{ end }}
                 {{ end }}
@@ -56,8 +52,8 @@
                 {{ with .Params.headset_acoustics }}
                 {{ if ge (len .) 1 }}
                     <li>{{ i18n "headset acoustics" }}: 
-                    {{ range . }}<a class="badge badge-primary" href="/devices/headset/#f=.{{ . | urlize }}">
-                        {{ lower (i18n .) }}</a>{{ end }}
+                    <a class="badge badge-primary" href="/devices/headset/#f=.{{ . | urlize }}">
+                        {{ lower (i18n .) }}</a>
                     </li>
                 {{ end }}
                 {{ end }}
@@ -65,8 +61,8 @@
                 {{ with .Params.mouse_sensor }}
                 {{ if ge (len .) 1 }}
                     <li>{{ i18n "mouse sensor type" }}: 
-                    {{ range . }}<a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">
-                        {{ lower (i18n .) }}</a>{{ end }}
+                    <a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">
+                        {{ lower (i18n .) }}</a>
                     </li>
                 {{ end }}
                 {{ end }}
@@ -74,8 +70,8 @@
                 {{ with .Params.mouse_form }}
                 {{ if ge (len .) 1 }}
                     <li>{{ i18n "mouse form" }}: 
-                    {{ range . }}<a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">
-                        {{ lower (i18n .) }}</a>{{ end }}
+                    <a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">
+                        {{ lower (i18n .) }}</a>
                     </li>
                 {{ end }}
                 {{ end }}
@@ -83,9 +79,8 @@
                 {{ with .Params.mouse_wire }}
                 {{ if ge (len .) 1 }}
                     <li>{{ i18n "mouse wire" }}: 
-                    {{ range . }}
                     <a class="badge badge-primary" href="/devices/mouse/#f=.{{ . | urlize }}">
-                        {{ lower (i18n .) }}</a>{{ end }}
+                        {{ lower (i18n .) }}</a>
                     </li>
                 {{ end }}
                 {{ end }}
@@ -107,7 +102,7 @@
 
 
                 {{ $section := .Section }}
-                {{ $devais := .Params.type_devices }}
+                {{ $devais := .Params.devices }}
                 {{ $url := .Site.BaseURL }}
                 {{ if .Params.series }}
                 <section>
@@ -129,6 +124,54 @@
             </div>
         </div>
     </header>
+
+    <section>
+        {{ if .Params.all_games_percent }}
+
+        <div class="card">
+        <div class="card-body">
+            
+            <h4>
+            {{ if eq .Site.Language.Lang "ru" }}
+            {{ .Title }} - статистика использования киберспортсменами:
+            {{ else }}
+            {{ .Title }} - statistics of use by pro gamers:
+            {{ end }}
+            </h4>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">{{ i18n "Game" }}</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+
+                    {{ if .Params.csgo_percent }}
+                    <tr>
+                    <th scope="row">CS:GO</th>
+                    <td>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" 
+                            style="width: {{ .Params.csgo_percent }}%" 
+                            aria-valuenow="{{ .Params.csgo_percent }}" 
+                            aria-valuemin="0" 
+                            aria-valuemax="100">
+                            {{ .Params.csgo_percent }}%
+                        </div>
+                        </div>                   
+                    </td>
+                    </tr>
+                    {{ end }}
+
+                </tbody>
+            </table>
+        </div>
+        </div>
+
+        {{ end }}
+    </section>
 
     <section id="post-body">
         {{ .Content }}
@@ -173,5 +216,3 @@
 {{ template "_internal/disqus.html" . }}
 
 {{ partial "blocks/top-devices.html" . }}
-
-{{ end }}

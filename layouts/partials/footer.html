@@ -36,6 +36,14 @@
         {{ end }}
         </ul>
 
+        <p>
+        {{ if eq .Site.Language.Lang "ru" }}
+        {{ .Site.Title }} находиться в активной разработке. Возможны ошибки и неточности.
+        {{ else }}
+        {{ .Site.Title }} is in active development. Errors and inaccuracies are possible.
+        {{ end }}
+        </p>
+
         {{ if .Site.Params.amazon_id }}
         <p>&nbsp;</p>
         <p>{{ .Site.Title }} is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com, Amazon.co.uk, Amazon.de, Amazon.fr, Amazon.it, Amazon.in, Amazon.es and other Amazon stores worldwide.</p>
@@ -44,7 +52,6 @@
 
         <p><a href="{{ .Site.BaseURL | relLangURL }}{{ .Site.Params.Privacy_Policy }}">
         {{ .Site.Params.Privacy_Policy_description }}</a></p>
-   
 
         <p class="small">
         {{ with .Site.Params.copyright }}

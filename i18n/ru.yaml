@@ -113,6 +113,11 @@
 - id: all
   translation: Все
 
+- id: game
+  translation: игра
+- id: Game
+  translation: Игра
+
 # Блокт с контентом
 - id: all posts from the blog
   translation: Все посты и статьи

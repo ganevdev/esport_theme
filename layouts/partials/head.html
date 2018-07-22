@@ -13,7 +13,12 @@
 {{ end }}
 
 <link rel="shortcut icon" href="{{ "favicon.ico" | absURL }}">
-<link rel="stylesheet" href="{{ "css/style.min.css" | absURL }}">
+
+<!-- <link rel="stylesheet" href=" "css/style.min.css" | absURL "> -->
+{{- $cssOpts := (dict "targetPath" "css/style.css" "sourceMapsEnabled" true) -}}
+{{- $css := resources.Get "sass/style.scss" | resources.ExecuteAsTemplate "sass/theme.sass" . | toCSS $cssOpts | minify | fingerprint -}}
+<link rel="stylesheet" media="screen" href="{{ $css.Permalink }}" 
+integrity="{{ $css.Data.Integrity }}">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
