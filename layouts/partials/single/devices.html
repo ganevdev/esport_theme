@@ -197,15 +197,15 @@
 
     {{ if .Site.Params.socialmart }}
     {{ if .Params.ya_market_number }}
-    {{ with .Params.ya_market_number }}
+    <p>&nbsp;</p>
     <div class="card">
         <div class="card-body">
-            <div data-widget-id="7wvAO5Ly" class="smw3" data-model-id="{{ . }}"></div>
+            <div data-widget-id="H8j8LExc" class="smw3" 
+            data-model-id="{{ .Params.ya_market_number }}"></div>
             <noscript><a href="//socialmart.ru" title="SocialMart" target="_blank">Виджет от SocialMart</a></noscript>
-            <script async type="text/javascript" charset="UTF-8" src="//widget.socialmart.ru/init.php?render=js&wid=7wvAO5Ly"></script>
+            <script async type="text/javascript" charset="UTF-8" src="//widget.socialmart.ru/init.php?render=js&wid=H8j8LExc"></script>
         </div>
     </div>
-    {{ end }}
     {{ end }}
     {{ end }}
 
